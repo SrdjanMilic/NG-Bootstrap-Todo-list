@@ -1,6 +1,6 @@
 # Andgular TODO list demo application
 
-**Requriments**
+**Requirements**
 - nodejs
 - mongodb
 
