@@ -5,13 +5,13 @@
         <div [hidden]="submitted" style="width: 400px;">
             <form (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                    <label for="name">Job Title</label>
+                    <label for="job-title">Job Title</label>
                     <input type="text" class="form-control" id="job-title" required [(ngModel)]="todo.jobTitle"
                            name="job-title">
                 </div>
 
                 <div class="form-group">
-                    <label for="name">Job Description</label>
+                    <label for="job-description">Job Description</label>
                     <input type="text" class="form-control" id="job-description" required
                            [(ngModel)]="todo.jobDescription"
                            name="job-description">

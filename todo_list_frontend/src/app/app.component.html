@@ -28,15 +28,15 @@
         <div class="modal-body">
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <label for="name">Job Title</label>
+              <label for="job-title">Job Title</label>
               <input type="text" class="form-control" id="job-title" required [(ngModel)]="todo.jobTitle"
-                     name="firstName">
+                     name="job-title">
             </div>
 
             <div class="form-group">
-              <label for="name">Job Description</label>
+              <label for="job-description">Job Description</label>
               <input type="text" class="form-control" id="job-description" required [(ngModel)]="todo.jobDescription"
-                     name="lastName">
+                     name="job-description">
             </div>
 
             <div class="form-btn-wrapper">
