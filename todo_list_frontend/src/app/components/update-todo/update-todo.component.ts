@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {Todo} from '../../models/todo'
-import {ActivatedRoute, Router} from '@angular/router';
-import {TodoService} from '../../services/todo.service';
+import { Todo } from '../../models/todo'
+import { ActivatedRoute, Router } from '@angular/router';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
     selector: 'app-update-todo',
     templateUrl: './update-todo.component.html',
     styleUrls: ['./update-todo.component.css']
 })
+
 export class UpdateTodoComponent implements OnInit {
 
     id: number;
@@ -30,19 +31,10 @@ export class UpdateTodoComponent implements OnInit {
             }, error => console.log(error));
     }
 
-    updateTodo() {
+    onSubmit() {
         this.todoService.updateTodo(this.id, this.todo)
             .subscribe(data => console.log(data), error => console.log(error));
         this.todo = new Todo();
-        this.gotoList();
-    }
-
-    onSubmit() {
-        this.updateTodo();
-    }
-
-    gotoList() {
         this.router.navigate(['/todos']);
     }
-
 }

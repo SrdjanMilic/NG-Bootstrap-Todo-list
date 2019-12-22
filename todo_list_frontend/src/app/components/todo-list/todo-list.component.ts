@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {Observable} from "rxjs";
-import {TodoService} from "../../services/todo.service";
-import {Todo} from "../../models/todo";
-import {Router} from '@angular/router';
+import { Observable } from "rxjs";
+import { TodoService } from "../../services/todo.service";
+import { Todo } from "../../models/todo";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-todo-list',

@@ -2,22 +2,21 @@
 
 <div class="card" style="width: 442px;">
     <div class="card-body">
-        <div [hidden]="submitted" style="width: 400px;">
-            <form (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="job-title">Job Title</label>
-                    <input type="text" class="form-control" id="job-title" required [(ngModel)]="todo.jobTitle"
-                           name="job-title">
-                </div>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="job-title">Job Title</label>
+                <input type="text" class="form-control" id="job-title" required [(ngModel)]="todo.jobTitle"
+                       name="job-title">
+            </div>
 
-                <div class="form-group">
-                    <label for="job-description">Job Description</label>
-                    <input type="text" class="form-control" id="job-description" required
-                           [(ngModel)]="todo.jobDescription"
-                           name="job-description">
-                </div>
-                <button type="submit" class="btn btn-success">Save</button>
-            </form>
-        </div>
+            <div class="form-group">
+                <label for="job-description">Job Description</label>
+                <input type="text" class="form-control" id="job-description" required
+                       [(ngModel)]="todo.jobDescription"
+                       name="job-description">
+            </div>
+
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
     </div>
 </div>

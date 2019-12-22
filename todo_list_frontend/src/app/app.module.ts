@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateTodoComponent } from './components/create-todo/create-todo.component';
 import { TodoDetailsComponent } from './components/todo-details/todo-details.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { UpdateTodoComponent } from './components/update-todo/update-todo.component';
@@ -16,7 +15,6 @@ import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   declarations: [
     AppComponent,
-    CreateTodoComponent,
     TodoDetailsComponent,
     TodoListComponent,
     UpdateTodoComponent
