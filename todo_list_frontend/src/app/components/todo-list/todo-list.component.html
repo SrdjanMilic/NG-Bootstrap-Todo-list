@@ -11,7 +11,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let todo of (todos | async)">
-        <!--<tr *ngFor="let todo of (todos | async)?.data">-->
+            <!--<tr *ngFor="let todo of (todos | async)?.data">-->
             <td>{{ todo._id }}</td>
             <td>{{ todo.jobTitle }}</td>
             <td>{{ todo.jobDescription }}</td>
