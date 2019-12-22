@@ -13,8 +13,7 @@ export class AppComponent implements OnInit {
     title = 'Todo List';
     todo: Todo = new Todo();
 
-    constructor(private todoService: TodoService) {
-    }
+    constructor(private todoService: TodoService) { }
 
     ngOnInit() {
     }
