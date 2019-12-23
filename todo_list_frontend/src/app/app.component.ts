@@ -12,6 +12,7 @@ import { Todo } from './models/todo';
 export class AppComponent implements OnInit {
     title = 'Todo List';
     todo: Todo = new Todo();
+    isClicked = false;
 
     constructor(private todoService: TodoService) { }
 
@@ -29,10 +30,14 @@ export class AppComponent implements OnInit {
         this.todoService.createTodo(this.todo)
             .subscribe(data => console.log(data), error => console.log(error));
         this.todo = new Todo();
+        this.isClicked = true;
+        console.log('clicked');
     }
 
     onClose() {
-        window.location.reload();
+        if(this.isClicked) {
+            window.location.reload();
+        }
     }
 
 }
