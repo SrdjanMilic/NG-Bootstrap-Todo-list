@@ -1,0 +1,14 @@
+.btn-sm {
+    width: 34px;
+}
+
+.action-btn-wrapper {
+    display: flex;
+}
+
+.table {
+    border-color: #dee2e6;
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+    padding-bottom: 0.5rem;
+}

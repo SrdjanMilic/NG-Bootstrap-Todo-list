@@ -1,0 +1,16 @@
+<nav class="navbar bg-dark navbar-dark d-flex align-items-center justify-content-between">
+    <div class="container">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="todos" routerLinkActive="active">
+                    <h3><i class="icon ion-md-home mr-2" style="font-size: 2rem;"></i>Todo List</h3>
+                </a>
+            </li>
+        </ul>
+        <app-new-todo></app-new-todo>
+    </div>
+</nav>
+
+<div class="container main">
+    <router-outlet></router-outlet>
+</div>

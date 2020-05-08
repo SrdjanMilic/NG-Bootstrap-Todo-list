@@ -1,23 +1,24 @@
-# Angular TODO list demo application
+# Angular Todo application
 
-**Requirements**
+**Requirements:**
+
 - nodejs
 - mongodb
 
-**Usage**  
+**Usage:**
 
-1. cd to "MongoDB_REST_API/REST_API_1" to start the server
-2. run the following commands:
+- cd to "REST_API_1" to start the server
+- run the following commands:
 
-```
+```bash
 npm i
-nodemon or "node server.js"
+npm start
 ```
 
+- cd to "todo-list-frontend" to start the Angular front-end
+- run the following commands:
 
-3. cd to "todo_list_frontend" to start the Angular front-end
-4. run the following commands:
-```
+```bash
 npm i
 ng serve --open
 ```

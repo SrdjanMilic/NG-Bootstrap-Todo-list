@@ -1,0 +1,32 @@
+<!-- "New Todo" Modal ng-bootstrap -->
+<ng-template #newTodo let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">New Todo</h5>
+        <button (click)="close()" aria-label="Close" class="close" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="todo-title">Title</label>
+                <input [(ngModel)]="this.todoNew.title" class="form-control" id="todo-title" name="todo-title" required
+                    type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="todo-description">Description</label>
+                <textarea [(ngModel)]="this.todoNew.description" class="form-control" cols="50" id="todo-description"
+                    name="todo-description" required rows="4" type="text">
+                </textarea>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer form-btn-wrapper">
+        <button (click)="close()" class="btn btn-secondary mr-2" type="button">Close</button>
+        <button (click)="onSubmit()" class="btn btn-success" type="submit">Save</button>
+    </div>
+
+</ng-template>
+
+<button (click)="open(newTodo)" class="btn btn-primary"><i class="icon ion-md-add-circle"></i></button>

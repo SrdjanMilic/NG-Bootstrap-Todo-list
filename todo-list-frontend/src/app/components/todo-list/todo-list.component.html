@@ -1,0 +1,58 @@
+<form>
+    <div class="form-group form-inline">
+        <input [(ngModel)]="tableService.searchTerm" class="form-control" name="searchTerm"
+            placeholder="Full text search" type="text" />
+        <span *ngIf="tableService.loading$ | async" class="ml-3">Loading...</span>
+    </div>
+
+    <table id="table" class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th (sort)="onSort($event)" scope="col" sortable="title">Title</th>
+                <th (sort)="onSort($event)" scope="col" sortable="description">Description</th>
+                <th (sort)="onSort($event)" scope="col" sortable="created">Created</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of tableService.todos$ | async;">
+                <th scope="row">{{ todo.id }}</th>
+                <td>
+                    <ngb-highlight [result]="todo.title" [term]="tableService.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="todo.description" [term]="tableService.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <ngb-highlight [result]="todo.created" [term]="tableService.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                    <div class="action-wrapper">
+                        <span (click)="openModalDelete(todo._id)" placement="top" ngbTooltip="Delete">
+                            <i class="icon ion-md-trash"></i>
+                        </span>
+                        <span (click)="updateTodo(todo._id)" class="ml-3" placement="top" ngbTooltip="Update">
+                            <i class="icon ion-md-create"></i>
+                        </span>
+                        <span (click)="todoDetails(todo._id)" class="ml-3" placement="top" ngbTooltip="Details">
+                            <i class="icon ion-md-eye"></i>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between">
+        <ngb-pagination [(page)]="tableService.page" [collectionSize]="tableService.total$ | async"
+            [pageSize]="tableService.pageSize">
+        </ngb-pagination>
+
+        <select [(ngModel)]="tableService.pageSize" class="custom-select" name="pageSize" style="width: auto">
+            <option [ngValue]="10">10 items per page</option>
+            <option [ngValue]="25">25 items per page</option>
+            <option [ngValue]="50">50 items per page</option>
+        </select>
+    </div>
+</form>
