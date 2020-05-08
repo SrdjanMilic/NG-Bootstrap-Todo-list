@@ -10,6 +10,8 @@ export class TodoService {
 
     private baseUrl = 'http://localhost:3000/api/v1/todoDB';
 
+    checkStatus = false;
+
     constructor(private http: HttpClient) {
     }
 
@@ -30,7 +32,9 @@ export class TodoService {
     }
 
     // Get all Todos
-    getTodosList(): Observable<any> {
+    getTodoList(): Observable<any> {
+        this.checkStatus = true;
+        console.log(this.checkStatus);
         return this.http.get(`${this.baseUrl}`);
     }
 }

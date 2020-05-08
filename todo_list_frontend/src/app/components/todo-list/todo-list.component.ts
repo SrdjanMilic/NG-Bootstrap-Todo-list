@@ -13,12 +13,13 @@ import { Router } from '@angular/router';
 
 export class TodoListComponent implements OnInit {
     todos: Observable<Todo[]>;
+
     dtOptions: DataTables.Settings = {};
 
     constructor(private todoService: TodoService, private router: Router) {
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.reloadData();
         this.dtOptions = {
             pagingType: 'full_numbers',
@@ -28,7 +29,7 @@ export class TodoListComponent implements OnInit {
     }
 
     reloadData() {
-        this.todos = this.todoService.getTodosList();
+        this.todos = this.todoService.getTodoList();
     }
 
     deleteTodo(id: number) {
@@ -51,4 +52,5 @@ export class TodoListComponent implements OnInit {
     updateTodo(id: number) {
         this.router.navigate(['update', id]);
     }
+
 }

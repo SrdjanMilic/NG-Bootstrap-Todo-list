@@ -6,12 +6,12 @@ const todo = require('./model');
 
 //GET HTTP method to /todo
 router.get('/',(req,res) => {
-  todo.getAllTodo((err, todos)=> {
+  todo.getAllTodo((err, data)=> {
     if(err) {
       res.json({success:false, message: `Failed to load all lists. Error: ${err}`});
     }
     else {
-      res.write(JSON.stringify({success: true, todos:todos},null,2));
+      res.write(JSON.stringify({success: true, data:data},null,2));
       res.end();
     }
   });
@@ -25,7 +25,7 @@ router.post('/', (req,res,next) => {
     jobDescription: req.body.jobDescription,
     created: req.body.created
   });
-  todo.addTodo(newTodo,(err, todos) => {
+  todo.addTodo(newTodo,(err, data) => {
     if(err) {
       res.json({success: false, message: `Failed to create a new todo. Error: ${err}`});
     }
@@ -40,7 +40,7 @@ router.patch('/:id', (req,res,next) => {
     jobDescription: req.body.jobDescription,
     created: req.body.created
   });
-  todo.addTodo(newTodo,(err, todos) => {
+  todo.addTodo(newTodo,(err, data) => {
     if(err) {
       res.json({success: false, message: `Failed to update todo. Error: ${err}`});
 
@@ -56,11 +56,11 @@ router.delete('/:id', (req,res,next)=> {
   //access the parameter which is the id of the item to be deleted
   let id = req.params.id;
   //Call the model method deleteListById
-  todo.deleteTodoById(id,(err,todos) => {
+  todo.deleteTodoById(id,(err,data) => {
     if(err) {
       res.json({success:false, message: `Failed to delete the todo. Error: ${err}`});
     }
-    else if(todos) {
+    else if(data) {
       res.json({success:true, message: "Deleted successfully"});
     }
     else
