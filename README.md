@@ -1,4 +1,4 @@
-# Andgular TODO list demo application
+# Angular TODO list demo application
 
 **Requirements**
 - nodejs
