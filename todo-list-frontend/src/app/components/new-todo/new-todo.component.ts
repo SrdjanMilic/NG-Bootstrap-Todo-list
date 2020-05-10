@@ -14,9 +14,9 @@ export class NewTodoComponent {
     todoNew: any = new Todo();
 
     @Input() id: string;
-    private element: any;
+    public element: any;
 
-    constructor(private el: ElementRef, private ngbModal: NgbModal,
+    constructor(public el: ElementRef, private ngbModal: NgbModal,
                 private todoListComponent: TodoListComponent, private todoService: TodoService,
                 public tableService: TableService) {
         this.element = el.nativeElement;
