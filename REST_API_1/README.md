@@ -1,10 +1,12 @@
-#Purpose
+# REST API v1 - express + mongodb
 
-This is a test project to get a REST API up and running with Node, Express and MongoDB
+**Requirements:**
 
-#Run
+- npm
+- node.js
+- mongodb
 
-- Run `npm install` to install node modules
-- Run `mongod` to start MongoDB database
-- Run `npm run devStart` to start the server
+**Run:**
 
+- `npm i`
+- `npm start`
