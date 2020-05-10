@@ -54,7 +54,7 @@ router.patch('/:id', getTodo, async (req, res) => {
 router.delete('/:id', getTodo, async (req, res) => {
   try {
     await res.todo.remove();
-    res.json({ message: 'Todo deleted' })
+    res.json({ serverResponse: 'Todo deleted!'})
   } catch(err) {
     res.status(500).json({ message: err.message })
   }
