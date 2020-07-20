@@ -93,7 +93,7 @@ export class TodoListComponent implements OnInit {
       },
         error => console.log(error)
       );
-    this.tableService.todoArray = this.tableService.todoArray.filter(elem => elem._id !== id);
+    // this.tableService.todoArray = this.tableService.todoArray.filter(todo => todo._id !== id);
     this.todoLength--;
     this.modalService.dismissAll();
     console.log('filtered array: ' + this.tableService.todoArray.length);
