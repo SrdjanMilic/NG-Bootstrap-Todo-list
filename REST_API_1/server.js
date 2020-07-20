@@ -5,8 +5,7 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const db = mongoose.connection;
-const todosRouter = require('./controler');
-const PORT = 3000;
+const todosRouter = require('./controller');
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true  });
 db.on('error', (error) => console.error(error));
@@ -19,4 +18,4 @@ app.use(cors());
 
 app.use('/api/v1/todoListDB', todosRouter);
 
-app.listen(PORT, () => console.log('server is up at port: ' + PORT));
+app.listen(process.env.PORT, () => console.log('server running at port: ' + process.env.PORT));
