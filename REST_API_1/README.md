@@ -1,12 +1,12 @@
 # REST API v1 - express + mongodb
 
-**Requirements:**
+## Requirements
 
 - npm
 - node.js
 - mongodb
 
-**Run:**
+## Run
 
-- `npm i`
-- `npm start`
+1. `npm i`
+2. `npm start`
