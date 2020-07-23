@@ -19,8 +19,6 @@ import { UpdateTodoComponent } from '../update-todo/update-todo.component';
 })
 
 export class TodoListComponent implements OnInit {
-  todoLength: number = null;
-
   todos$: Observable<Todo[]>;
   total$: Observable<number>;
 
@@ -75,12 +73,11 @@ export class TodoListComponent implements OnInit {
 
   reloadData() {
     this.todoService.getTodoList()
-      .subscribe(data => {
-        for (const elem of data) {
+      .subscribe(todos => {
+        for (const elem of todos) {
           // Pushing the data to todoArray
           this.tableService.todoArray.push(elem);
           // Get data length
-          this.todoLength = data.length;
         }
         console.log('array at page load: ' + this.tableService.todoArray.length);
       }, error => console.log(error));
@@ -88,16 +85,20 @@ export class TodoListComponent implements OnInit {
 
   deleteTodo(id: string) {
     this.todoService.deleteTodo(id)
-      .subscribe(data => {
-        console.log(data); // print message from server
+      .subscribe(todo => {
+        console.log(todo); // print message from server
       },
         error => console.log(error)
       );
-    // this.tableService.todoArray = this.tableService.todoArray.filter(todo => todo._id !== id);
-    this.todoLength--;
+    this.todos$.subscribe(todos => {
+      for (let i = 0; i < todos.length; i++) {
+        if (todos[i]._id === id) {
+          todos.splice(i, 1);
+        }
+      }
+    });
+    this.tableService.todoArray.length--;
     this.modalService.dismissAll();
-    console.log('filtered array: ' + this.tableService.todoArray.length);
-    console.log('id: ' + id);
   }
 
   todoDetails(id: string) {
