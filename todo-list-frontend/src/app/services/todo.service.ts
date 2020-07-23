@@ -11,19 +11,18 @@ export class TodoService {
 
   private baseUrl = 'http://localhost:3002/api/v1/todoListDB';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   getTodo(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+    return this.http.get<Todo>(`${this.baseUrl}/${id}`);
   }
 
-  createTodo(todo: object): Observable<object> {
-    return this.http.post(`${this.baseUrl}`, todo);
+  createTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>(`${this.baseUrl}`, todo);
   }
 
   updateTodo(id: string, value: Todo): Observable<object> {
-    return this.http.patch(`${this.baseUrl}/${id}`, value);
+    return this.http.patch<Todo>(`${this.baseUrl}/${id}`, value);
   }
 
   deleteTodo(id: string): Observable<any> {
@@ -32,6 +31,6 @@ export class TodoService {
 
   // Get all Todos
   getTodoList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get<Todo[]>(`${this.baseUrl}`);
   }
 }
